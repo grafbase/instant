@@ -13,6 +13,12 @@ impl Ord for Instant {
 }
 impl Eq for Instant {}
 
+impl From<Instant> for Duration {
+    fn from(instant: Instant) -> Self {
+        instant.0
+    }
+}
+
 impl Instant {
     #[inline]
     pub fn now() -> Self {
