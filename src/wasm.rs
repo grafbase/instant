@@ -27,11 +27,7 @@ impl Instant {
 
     #[inline]
     pub fn duration_since(&self, earlier: Instant) -> Duration {
-        assert!(
-            earlier.0 <= self.0,
-            "`earlier` cannot be later than `self`."
-        );
-        self.0 - earlier.0
+        self.checked_duration_since(earlier).unwrap_or(Duration::from_secs(0))
     }
 
     #[inline]

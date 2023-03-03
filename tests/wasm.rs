@@ -54,4 +54,3 @@ fn test_system_time() {
         .duration_since(SystemTime::now())
         .is_err());
 }
-
